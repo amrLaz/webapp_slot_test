@@ -37,9 +37,9 @@ jobs:
     - name: Login as LZ Builder
       run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET -t $ARM_TENANT_ID
       env:
-        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_CLIENT_ID: "85b43cdc-c798-4758-9184-104d7d132d67"
+        ARM_CLIENT_SECRET: "tgY8Q~rvz71qJJ~djUupVD_HCRHdUSk6Dt8WhcGC"
+        ARM_TENANT_ID: "b0645364-eba2-4775-843e-4f68023d2f2c"
 
     - name: Terraform Plan
       id: plan
