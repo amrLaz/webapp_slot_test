@@ -34,7 +34,13 @@ jobs:
         cd terraform/
         terraform validate -no-color
 
-    
+    - name: Login as LZ Builder
+      run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET -t $ARM_TENANT_ID
+      env:
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+
     - name: Terraform Plan
       id: plan
       if: github.event_name == 'pull_request'
