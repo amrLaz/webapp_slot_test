@@ -34,8 +34,8 @@ jobs:
         cd terraform/
         terraform validate -no-color
 
-    - name: Login as LZ Builder
-      run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET -t $ARM_TENANT_ID
+    - name: Login via SP
+      run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
       env:
         ARM_CLIENT_ID: "18625e5d-e15d-4c63-b145-96f09f3f5a65"
         ARM_CLIENT_SECRET: "gwj8Q~sAzYoHcD~t6H5uTn9mQuWwL6D~ZLkYNcpY"
