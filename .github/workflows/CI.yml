@@ -34,20 +34,19 @@ jobs:
         cd terraform/
         terraform validate -no-color
 
-    # - name: Login via SP
-    #   run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
-    #   env:
-    #     ARM_CLIENT_ID: "18625e5d-e15d-4c63-b145-96f09f3f5a65"
-    #     ARM_CLIENT_SECRET: "gwj8Q~sAzYoHcD~t6H5uTn9mQuWwL6D~ZLkYNcpY"
-    #     ARM_TENANT_ID: "4f490be5-b518-483a-99f6-90b580ae0cb5"
+    - name: Login via SP
+      run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
+      env:
+        ARM_CLIENT_ID: "18625e5d-e15d-4c63-b145-96f09f3f5a65"
+        ARM_CLIENT_SECRET: "gwj8Q~sAzYoHcD~t6H5uTn9mQuWwL6D~ZLkYNcpY"
+        ARM_TENANT_ID: "4f490be5-b518-483a-99f6-90b580ae0cb5"
     
-    - name: Azure login
-      uses: azure/login@v1
-      with:
-        client-id: "18625e5d-e15d-4c63-b145-96f09f3f5a65"
-        creds: "gwj8Q~sAzYoHcD~t6H5uTn9mQuWwL6D~ZLkYNcpY"
-        tenant-id: "4f490be5-b518-483a-99f6-90b580ae0cb5"
-        subscription-id: "39c87760-f7b4-4479-ba4c-a0ed22bc35e2"
+    # - name: Azure login
+    #   uses: azure/login@v1
+    #   with:
+    #     client-id: "18625e5d-e15d-4c63-b145-96f09f3f5a65"
+    #     tenant-id: "4f490be5-b518-483a-99f6-90b580ae0cb5"
+    #     subscription-id: "39c87760-f7b4-4479-ba4c-a0ed22bc35e2"
       
     - name: Terraform Plan
       id: plan
