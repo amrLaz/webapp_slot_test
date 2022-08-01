@@ -1,0 +1,4 @@
+variable "storagekey" {
+    type = string
+  
+}
