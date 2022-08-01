@@ -11,7 +11,7 @@ terraform {
         resource_group_name  = "RG-REMOTE-BACKEND"
         storage_account_name = "tfstatestorageamr"
         container_name       = "tfstate"
-        key                  = var.storagekey
+        key                  = "terraform.tfstate"
     }
 }
 
