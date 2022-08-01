@@ -30,11 +30,7 @@ resource "azurerm_windows_web_app" "webapp" {
   }
 }
 
-resource "azurerm_app_service_source_control" "example" {
-  app_id   = azurerm_windows_web_app.webapp.id
-  repo_url = "https://github.com/Azure-Samples/nodejs-docs-hello-world"
-  branch   = "master"
-}
+
 
 
 resource "azurerm_windows_web_app_slot" "webappslot" {
@@ -57,9 +53,4 @@ resource "azurerm_windows_web_app_slot" "webappslot" {
   identity {
     type = "SystemAssigned"
   }
-}
-resource "azurerm_app_service_source_control_slot" "example" {
-  slot_id  = azurerm_windows_web_app_slot.webappslot.id
-  repo_url = "https://github.com/Azure-Samples/nodejs-docs-hello-world"
-  branch   = "master"
 }
