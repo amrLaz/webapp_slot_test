@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env: 
-      ARM_CLIENT_ID: "18625e5d-e15d-4c63-b145-96f09f3f5a65"
-      ARM_CLIENT_SECRET: "gwj8Q~sAzYoHcD~t6H5uTn9mQuWwL6D~ZLkYNcpY"
-      ARM_SUBSCRIPTION_ID: "39c87760-f7b4-4479-ba4c-a0ed22bc35e2"
-      ARM_TENANT_ID: "4f490be5-b518-483a-99f6-90b580ae0cb5"
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
     steps:
     - name: Checkout
@@ -46,7 +46,7 @@ jobs:
       if: github.event_name == 'pull_request'
       run: |
         cd terraform/
-        terraform plan -no-color -input=false
+        terraform plan -no-color -input=false -var-file="terraform.tfvars"
       continue-on-error: true
 
     - name: Terraform Plan Status

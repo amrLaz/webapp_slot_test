@@ -17,10 +17,10 @@ terraform {
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
-  client_id = var.tf_client_id
-  client_secret = var.tf_client_secret
-  tenant_id = var.tf_tenant_id
-  subscription_id = var.tf_subscription_id
+  # client_id = var.tf_client_id
+  # client_secret = var.tf_client_secret
+  # tenant_id = var.tf_tenant_id
+  # subscription_id = var.tf_subscription_id
   features {}
 }
 
